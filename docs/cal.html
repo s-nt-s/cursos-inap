@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<base target="_blank" />
+    <meta charset="UTF-8">
+    <title>Calendario de cursos INAP</title>
+    <link href='https://unpkg.com/@fullcalendar/core@4.4.2/main.css' rel='stylesheet' />
+    <link href='https://unpkg.com/@fullcalendar/daygrid@4.4.2/main.css' rel='stylesheet' />
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<script src='https://unpkg.com/@fullcalendar/core@4.4.2/main.min.js'></script>
+		<!--script src='https://unpkg.com/@fullcalendar/core@4.4.2/locales-all.min.js'></script-->
+		<script src='https://unpkg.com/@fullcalendar/daygrid@4.4.2/main.min.js'></script>
+		<script src='https://unpkg.com/@fullcalendar/list@4.4.2/main.min.js'></script>
+
+		<script src="js/00-lib.js"></script>
+		<script src="js/cursos.js"></script>
+		<script>
+$(document).ready(function(){
+	var calendarEl = document.getElementById('calendar');
+
+	var calendar = new FullCalendar.Calendar(calendarEl, {
+		plugins: [ 'dayGrid', 'list'],
+		defaultView: 'dayGridMonth',
+		locale: 'es'
+	});
+	C = new Cursos();
+	//C = window.opener.C;
+	var fechas=[];
+	C.c.forEach(function (c, i){
+		fechas.push(c.fechaInicio);
+		fechas.push(c.fechaFin);
+		e={
+			id: c.idAccion,
+			title: c.denominacion,
+			start: c.fechaInicio,
+			end: c.fechaFin,
+			allDay: true,
+			url: c.urlFicha,
+			color: c.lugar=="online"?null:"orange"
+		}
+		console.log(e);
+		calendar.addEvent(e);
+	})
+	var min_f = fechas.filter(function(i){return i!=null}).sort()[0];
+	console.log(fechas);
+	console.log(min_f);
+	calendar.gotoDate(min_f);
+	calendar.render();
+})
+		</script>
+	</head>
+	<body>
+		<div id="calendar"></div>
+  </body>
+</html>

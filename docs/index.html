@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<base target="_blank" />
+    <meta charset="UTF-8">
+    <title>Cursos INAP</title>
+		<script src="js/Q.js"></script>
+    <link rel="stylesheet" href="main.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="js/00-lib.js"></script>
+		<script src="js/cursos.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+	<body data-ts="1608425009.78452" data-dt='20/12/2020' class="toHide" style="display:none;">
+		<header class="herokuerror" style="display:none">
+			<p>
+				Esta aplicación depende para funcionar de una instancia <a href="https://www.heroku.com/pricing#containers">heroku</a>
+				gratuita. La cual, por ser gratuita, esta limitada a cierta cantidad de uso por mes que <b>ya ha sido superada</b>,
+				por ello la aplicación no volverá a funcionar hasta que se inicie el próximo ciclo de facturación.
+			</p>
+			<p>
+				Si quieres que esta web funcione full-time considera hacer una donación para que pueda contratar una cuenta
+				<a href="https://www.heroku.com/pricing#containers">heroku</a> profesional que de servicio ininterrumpidamente.
+			</p>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+  <input type="hidden" name="cmd" value="_donations" />
+  <input type="hidden" name="business" value="H69CMSB6JMJLY" />
+  <input type="hidden" name="item_name" value="Mantener funcionando el buscador de cursos INAP" />
+  <input type="hidden" name="currency_code" value="EUR" />
+  <input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="Pulsa aquí para donar :)" alt="Pulsa aquí para donar :)" />
+  <img alt="" border="0" src="https://www.paypal.com/es_ES/i/scr/pixel.gif" width="1" height="1" />
+</form>			<p>
+				Cualquier cantidad es buena 🙂
+			</p>
+		</header>
+		<main>
+		<div id="resultado" class="toHide" style="display:none;">
+			<p class="loading">
+				Buscando cursos...
+			</p>
+			<div class="tb_cursos toHide" style="display:none;">
+			<table>
+			<thead>
+					<tr>
+						<th class="w0" title="Seleccionar" style="display:none"></th>
+						<th class="w0" title="Lugar">&#128205;</th>
+						<th class="id isSortable">ID</th>
+						<th class="horas isSortable">Horas</th>
+						<th class="fechas isSortable txt">Fechas</th>
+						<th class="">Curso</th>
+					</tr>
+			</thead>
+			<tbody class="auto_even">
+			</tbody>
+		</table>
+		<input type="button" value="Descargar ICS con los cursos seleccionados" id="ics" style="display:none">
+		<a href="" id="ics_link" style="display:none" target="_self" download="mis_cursos.ics"/>ICS</a>
+		</div>
+		<p>
+			<a href="?" target="_self" id="volver">Volver a buscar</a>
+		</p>
+		</div>
+			<form id="form_buscar" method="get" class="toHide" style="display:none;" target="_self">
+			<p>
+				<label for="lugar" class="ldot">Lugar</label>
+				<select id="lugar" name="lugar">
+					<option value="online">--solo online--</option>
+																			</select>
+				<span class="yonline">
+					<input type="checkbox" id="online" checked name="online" value=""> <label for="online">u on line</label>
+				</span>
+			</p>
+			<p>
+				<label for="area" class="ldot">Área</label>
+				<select id="area" multiple size="14">
+					<option value="NO" selected>-- sin área --</option>
+											<option value="78">Actividad y procedimiento administrativo</option>
+											<option value="87">Administración electrónica</option>
+											<option value="88">Dirección y gestión pública</option>
+											<option value="89">Elaboración normativa</option>
+											<option value="85">Gestión económica</option>
+											<option value="83">Habilidades profesionales</option>
+											<option value="82">Idiomas / lenguas cooficiales</option>
+											<option value="79">Organización y funcionamiento</option>
+											<option value="80">Politicas públicas</option>
+											<option value="84">Publicaciones</option>
+											<option value="3">Recursos humanos</option>
+											<option value="86" selected>Tecnologías de la información y las comunicaciones</option>
+											<option value="81">UE y relaciones internacionales</option>
+									</select>
+				<input name="area" type="hidden" value=""/>
+			</p>
+			<p>
+								<label for="tit" class="ldot">o que el título contenga</label>
+				<input type="text" id="tit" name="q"
+				title="Escribe palabras o frases separadas por comas (no hace falta poner tildes ni distinguir entre mayúsculas y minúscultas)"
+				placeholder="Escribe palabras o frases separadas por comas (no hace falta poner tildes ni distinguir entre mayúsculas y minúscultas)"
+				value="ingles, datos abiertos, apoyo"/>
+			</p>
+			<input type="submit" value="Buscar" id="buscar">
+			</form>
+		</main>
+			<footer>
+				<p>
+				Código fuente en <a href="https://github.com/s-nt-s/cursos-inap">GitHub</a>. Si falla o tienes alguna sugerencia pon un <a href="https://github.com/s-nt-s/cursos-inap/issues">issue</a>.
+				</p>
+				<p>
+				</p>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+				  <input type="hidden" name="cmd" value="_donations" />
+				  <input type="hidden" name="business" value="H69CMSB6JMJLY" />
+				  <input type="hidden" name="item_name" value="Mantener funcionando el buscador de cursos INAP" />
+				  <input type="hidden" name="currency_code" value="EUR" />
+					Si esta web te ha sido útil considera hacer una
+				  <input type="submit" value="donación" name="submit" title="Pulsa aquí para donar :)" alt="Pulsa aquí para donar :)" />.
+					Cualquier cantidad es buena 🙂
+				</form>
+			</footer>
+  </body>
+</html>

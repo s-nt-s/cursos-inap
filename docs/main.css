@@ -1,0 +1,92 @@
+body {
+  font-family: arial,sans serif;
+  font-size: 11pt;
+  margin:0;
+  padding: 0;
+  height: 100%;
+}
+body > main {
+  margin: 1em;
+}
+table {
+	margin-top: 14px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	width: 100%;
+  margin-bottom: 14px;
+}
+thead {
+	background-color: lightblue;
+}
+td, th {
+	border: 1px solid black;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+table tbody tr.even, table tbody.auto_even tr:nth-child(even) {
+	background-color: #ddd;
+}
+tbody tr:hover {
+	background-color: yellow !important;
+}
+.rgt {
+  text-align: right;
+}
+td.fch .d2:first-child {
+  display: inline-block;
+  width: 1.2em;
+  text-align: right;
+}
+td.fch {
+	white-space: nowrap;
+}
+th.id, th.horas, th.fechas, th.w0 {
+	width: 0;
+}
+
+
+table.active_sort th.isSortable {
+  cursor: pointer;
+  white-space: nowrap;
+}
+table.active_sort th.isSortable:after {
+  content: " ⇳"
+}
+table.active_sort th.isSortable.isSortedByMe:after {
+  content: " ⇓"
+}
+table.active_sort th.isSortable.isSortedByMe.isReversed:after {
+  content: " ⇑"
+}
+header, footer {
+  padding: 1em;
+  clear: both;
+  margin: 0px;
+  color: #fff !important;
+  background-color: #3a3a3a !important;
+}
+footer {
+  margin-top: 16px !important;
+}
+footer p:first-child {
+	margin-top: 0;
+}
+footer p:last-child {
+	margin-bottom: 0;
+}
+header a, footer a {
+  color: inherit;
+}
+td div.destinatarios {
+  margin-top: 5px;
+}
+span.grey {
+  opacity: 0.3;
+}
+p > label.ldot {
+  display: inline-block;
+  min-width: 3em;
+}
+p > label.ldot:after {
+  content: ":"
+}

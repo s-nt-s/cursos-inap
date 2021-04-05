@@ -1,5 +1,5 @@
 CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
-if(window.location.hostname=="s-nt-s.github.io") CORS_PROXY='https://cors-asaco.herokuapp.com/';
+if(["s-nt-s.github.io", "apuntes.ml"].indexOf(window.location.hostname)>=0) CORS_PROXY='https://cors-asaco.herokuapp.com/';
 jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
         options.url = CORS_PROXY + options.url;
